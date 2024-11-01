@@ -23,6 +23,7 @@ func _process(_delta):
 		for index in len(cameras):
 			if null != cameras[index]:
 				if index == current_controller:
+					cameras[current_controller].global_position = %Vessel.global_position #teleport camera to player
 					cameras[current_controller].make_current()
 				else:
 					cameras[index].current = false
@@ -32,6 +33,7 @@ func _process(_delta):
 			for index in len(cameras):
 				if null != cameras[index]:
 					current_controller = index
+					cameras[current_controller].global_position = %Vessel.global_position
 					cameras[current_controller].make_current()
 					
 			
